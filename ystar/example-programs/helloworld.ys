@@ -1,0 +1,6 @@
+[EntryPoint]
+func main :: (void) -> int
+{
+    print("hello world\n");
+    yield 0;
+}

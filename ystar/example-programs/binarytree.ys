@@ -1,0 +1,38 @@
+% EXAMPLE PURPOSES ONLY YO
+
+struct Tree ::
+(
+    Tree left,
+    Tree right,
+    bool isvalid,
+    int value,
+)
+
+[EntryPoint]
+func main :: (void) -> int
+{
+    print("hello world\n");
+    yield 0;
+}
+
+% insert an element into the tree
+func insert :: (tr: Tree, int value) -> void
+{
+    var subtree: Tree
+
+    % check if we can place into the tree
+    if subtree.isvalid
+        { insert(tr.right, value); }
+    else
+    {
+        tr.right = value;
+        yield;
+    }
+
+    % otherwise, keep walking the structure
+    if value > tr.value
+        { subtree = tr.right; }
+    else
+        { subtree = tr.left; }
+
+}

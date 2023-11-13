@@ -1,0 +1,23 @@
+#+TITLE: ystar grammar
+#+AUTHOR: kyubey
+
+* Keywords
+yield skip leave if func struct
+
+* Productions
+#+BEGIN_SRC
+Compilation = {Decl} [Block] <EOF>
+
+Decl = func FuncDecl
+     | struct StructDecl
+
+FuncDecl = Identifier "::" Signature
+StructDecl = Identifier "::" Formals
+
+Tag = "[" Identifier "]"
+BlockType = func | struct
+Signature = "(" Formals ")" "->" Type
+Formals = Formal {"," Formal} [,]
+Formal = Identifier ":" Type
+Type = TypeName | StructType
+#+END_SRC
